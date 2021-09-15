@@ -1,13 +1,13 @@
 node {
 	def app
-	def image = 'registry.hub.docker.com/careydevelopment/ecosystem-user-service'
+	def image = 'registry.hub.docker.com/ravikirankiran097/ecosystem-user-service'
 	def branch = '0.2.7-devops-work'
 	
 	try {
 		stage('Clone repository') {               
 	    	git branch: branch,
 	        	credentialsId: 'GitHub Credentials',
-	        	url: 'https://github.com/careydevelopment/ecosystem-user-service.git'
+	        	url: 'https://github.com/ravikirankiran097/ecosystem-user-service.git'
 	    } 
 	
 		stage('Build JAR') {
