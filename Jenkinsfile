@@ -23,7 +23,7 @@ node {
 	    }
 	    
 	    stage('Push') {
-	    	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {            
+	    	docker.withRegistry('https://registry.hub.docker.com', 'DockerHub_Cred') {            
 				app.push()
 	        }    
 	    }
