@@ -34,7 +34,7 @@ node {
 			app = docker.build image
 	    }
 	    
-	    //stage('Push') {
+	    //stage('Push to DockerHub') {
 	    //	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {            
 		//		app.push("${env.BUILD_NUMBER}")
 		//		app.push("latest")
