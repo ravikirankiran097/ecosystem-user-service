@@ -22,7 +22,7 @@ node {
 			app = docker.build image + ':$BUILD_NUMBER'
 	    }
 	    
-	    stage('Push') {
+	    stage('Push to DockerHub') {
 	    	docker.withRegistry('https://registry.hub.docker.com', 'DockerHub_Cred') {            
 				app.push()
 	        }    
