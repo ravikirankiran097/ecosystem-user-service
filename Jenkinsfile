@@ -4,7 +4,7 @@ node {
 	def branch = '0.2.7-devops-work'
 	
 	try {
-		stage('Clone repository') {               
+		stage('Clone Repository') {               
 	    	git branch: branch,
 	        	credentialsId: 'GitHub Credentials',
 	        	url: 'https://github.com/ravikirankiran097/ecosystem-user-service.git'
