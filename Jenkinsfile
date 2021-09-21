@@ -1,6 +1,6 @@
 node {
 	def app
-	def image = 'careydevelopment/ecosystem-user-service'
+	def image = 'ravikirankiran097/unit-test'
 	def branch = scm.branches[0].name.substring(2)
 	
 	try {
