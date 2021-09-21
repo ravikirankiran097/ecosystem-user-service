@@ -6,7 +6,7 @@ node {
 	try {
 		stage('Clone repository') {
 	    	git branch: branch,
-	        	credentialsId: 'GitHub Credentials',
+	        	credentialsId: 'GitHub_Cred',
 	        	url: 'https://github.com/careydevelopment/ecosystem-user-service.git'
 	    } 
 	
@@ -23,7 +23,7 @@ node {
 	    }
 	    
 	    stage('Push') {
-	    	docker.withRegistry('https://registry.hub.docker.com', 'docker-hub') {            
+	    	docker.withRegistry('https://registry.hub.docker.com', 'DockerHub_Cred') {            
 				app.push()
 	        }    
 	    }
