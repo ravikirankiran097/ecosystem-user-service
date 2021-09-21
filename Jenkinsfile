@@ -7,7 +7,7 @@ node {
 		stage('Clone repository') {
 	    	git branch: branch,
 	        	credentialsId: 'GitHub_Cred',
-	        	url: 'https://github.com/careydevelopment/ecosystem-user-service.git'
+	        	url: 'https://github.com/ravikirankiran097/ecosystem-user-service.git'
 	    } 
 	
 		stage('Build JAR') {
