@@ -1,7 +1,7 @@
 node {
 	def app
 	def image = 'ravikirankiran097/unit-test'
-	def branch = scm.branches[0].name.substring(2)
+	def branch = '0.2.9-unit-tests'
 	
 	try {
 		stage('Clone repository') {
