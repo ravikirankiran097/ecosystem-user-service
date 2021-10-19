@@ -36,6 +36,6 @@ node {
 		echo e.toString()
 		currentBuild.result = 'FAILURE'
 	} finally {
-        junit '**/target/surefire-reports/TEST-*.html'		
+        junit '**/target/surefire-reports/TEST-*.xml'		
 	}
 }
