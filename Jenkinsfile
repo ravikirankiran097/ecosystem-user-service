@@ -6,7 +6,7 @@ node {
 	try {
 		stage('Clone Repository') {               
 	    	git branch: branch,
-	        	credentialsId: 'GitHub Credentials',
+	        	credentialsId: 'GitHub_Cred',
 	        	url: 'https://github.com/ravikirankiran097/ecosystem-user-service.git'
 	    } 
 	
