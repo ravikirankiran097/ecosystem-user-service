@@ -15,8 +15,8 @@ node {
 	        	sh 'mvn -B clean package'
 	        	stash includes: '**/target/ecosystem-user-service.jar', name: 'jar'
 	    	}
-	    }
-	     
+//	    }
+//	     
 //	    stage('Build Image') {
 //	    	unstash 'jar'
 //			app = docker.build image + ':$BUILD_NUMBER'
@@ -35,8 +35,8 @@ node {
 //		echo 'Error occurred during build process!'
 //		echo e.toString()
 //		currentBuild.result = 'FAILURE'
-//	} finally {
-//        junit '**/target/surefire-reports/TEST-*.xml'		
-//	}
+	} finally {
+        junit '**/target/surefire-reports/TEST-*.xml'		
+	}
 }
 }
