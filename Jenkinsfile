@@ -39,3 +39,4 @@ node {
 //        junit '**/target/surefire-reports/TEST-*.xml'		
 //	}
 }
+}
