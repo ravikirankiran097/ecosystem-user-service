@@ -17,25 +17,25 @@ node {
 	    	}
 	    }
 	     
-	    stage('Build Image') {
-	    	unstash 'jar'
-			app = docker.build image + ':$BUILD_NUMBER'
-	    }
-	    
-	    stage('Push to DockerHub') {
-	    	docker.withRegistry('https://registry.hub.docker.com', 'DockerHub_Cred') {            
-				app.push()
-	        }    
-	    }
-	    
-	    stage('Cleanup') {
-			sh 'docker rmi ' + image + ':$BUILD_NUMBER'
-	    }
-	} catch (e) {
-		echo 'Error occurred during build process!'
-		echo e.toString()
-		currentBuild.result = 'FAILURE'
-	} finally {
-        junit '**/target/surefire-reports/TEST-*.xml'		
-	}
+//	    stage('Build Image') {
+//	    	unstash 'jar'
+//			app = docker.build image + ':$BUILD_NUMBER'
+//	    }
+//	    
+//	    stage('Push to DockerHub') {
+//	    	docker.withRegistry('https://registry.hub.docker.com', 'DockerHub_Cred') {            
+//				app.push()
+//	        }    
+//	    }
+//	    
+//	    stage('Cleanup') {
+//			sh 'docker rmi ' + image + ':$BUILD_NUMBER'
+//	    }
+//	} catch (e) {
+//		echo 'Error occurred during build process!'
+//		echo e.toString()
+//		currentBuild.result = 'FAILURE'
+//	} finally {
+//        junit '**/target/surefire-reports/TEST-*.xml'		
+//	}
 }
