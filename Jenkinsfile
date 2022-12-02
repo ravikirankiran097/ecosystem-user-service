@@ -41,6 +41,7 @@ pipeline
 		withCredentials([usernamePassword(credentialsId: 'DockerHub_Cred', passwordVariable: 'DockerHub_CredPassword', usernameVariable: 'DockerHub_CredUser')]) 
 			{
         		sh "docker login -u ${env.DockerHub_CredUser} -p ${env.DockerHub_CredPassword}"
+			sh "docker tag ravikirankiran097/ecosystem-user-service:latest ravikirankiran097/ecosystem-user-service:latest"
           		sh 'docker push ravikirankiran097/ecosystem-user-service:latest'        
 			}
 		echo 'Login Completed'                
