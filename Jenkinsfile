@@ -11,7 +11,7 @@ pipeline
 	{           
 		steps
 		{                
-		git credentialsId: 'github', url: 'https://github.com/githubusername/githubreponame'                 
+		git credentialsId: 'GitHub Credentials', url: 'https://github.com/ravikirankiran097/ecosystem-user-service.git'                 
 		echo 'Git Checkout Completed'            
 		}        
     }
