@@ -38,7 +38,9 @@ pipeline
 	{         
 		steps
 		{                            
-		sh 'echo $DOCKERHUB_CREDENTIALS_PSW | sudo docker login -u $DOCKERHUB_CREDENTIALS_USR --password-stdin'                 
+		withCredentials([usernamePassword(credentialsId: 'DockerHub_Cred', passwordVariable: 'DockerHub_CredPassword', usernameVariable: 'DockerHub_CredUser')]) {
+        	sh "docker login -u ${env.DockerHub_CredUser} -p ${env.DockerHub_CredPassword}"
+          	sh 'docker push ravikirankiran097/ecosystem-user-service:latest'                 
 		echo 'Login Completed'                
 		}           
     }               
