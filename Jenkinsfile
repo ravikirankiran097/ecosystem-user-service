@@ -3,7 +3,7 @@ pipeline
   agent any  
   environment 
   {     
-    DOCKERHUB_CREDENTIALS= credentials('dockerhubcredentials')     
+    DOCKERHUB_CREDENTIALS= credentials('DockerHub_Cred')     
   }    
   stages 
   {         
@@ -19,8 +19,8 @@ pipeline
 	{         
 		steps
 		{                
-		sh 'sudo docker build -t dockerhubusername/dockerhubreponame:$BUILD_NUMBER .'           
-        echo 'Build Image Completed'                
+		sh 'sudo docker build -t ravikirankiran097/ecosystem-user-service:$BUILD_NUMBER .'           
+        	echo 'Build Image Completed'                
 		}           
     }
     stage('Login to Docker Hub') 
@@ -35,7 +35,7 @@ pipeline
 	{         
 		steps
 		{                            
-		sh 'sudo docker push dockerhubusername/dockerhubreponame:$BUILD_NUMBER'                 
+		sh 'sudo docker push ravikirankiran097/ecosystem-user-service:$BUILD_NUMBER'                 
 		echo 'Push Image Completed'       
 		}           
     }      
