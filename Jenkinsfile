@@ -1,6 +1,7 @@
 pipeline 
 {   
   agent any  
+  tools{ maven "M3"}
   environment 
   {     
     DOCKERHUB_CREDENTIALS= credentials('DockerHub_Cred')     
@@ -11,10 +12,20 @@ pipeline
 	{           
 		steps
 		{                
-		git credentialsId: 'GitHub_Cred', url: 'https://github.com/ravikirankiran097/ecosystem-user-service.git'                 
+		git branch: '0.2.7-devops-work', credentialsId: 'GitHub_Cred', url: 'https://github.com/ravikirankiran097/ecosystem-user-service.git'                 
 		echo 'Git Checkout Completed'            
 		}        
     }
+	
+	stage("Mvn Build")
+	{           
+		steps
+		{ 
+		sh 'mvn -Dmaven.test.failure.ignore=true clean install'                
+		echo 'Mvn Build Completed'            
+		}        
+    }
+	
     stage('Build Docker Image') 
 	{         
 		steps
