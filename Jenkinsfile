@@ -30,7 +30,7 @@ pipeline
 	{         
 		steps
 		{                
-		sh 'sudo docker build -t ravikirankiran097/ecosystem-user-service:$BUILD_NUMBER .'           
+		sh 'docker build -t ravikirankiran097/ecosystem-user-service:$BUILD_NUMBER .'           
         	echo 'Build Image Completed'                
 		}           
     }
