@@ -1,9 +1,12 @@
+#Build JAR file using Maven
+FROM maven as build
+WORKDIR /ecosystem-user-service
+COPY . .
+RUN mvn clean install
+
+#Create Docker Image
 FROM adoptopenjdk/openjdk11:jre-11.0.10_9-alpine
-
-COPY ./target/ecosystem-user-service.jar /
-COPY ./carey-development-service-config.json /
-
-ENV GOOGLE_APPLICATION_CREDENTIALS="/carey-development-service-config.json"
-
-EXPOSE 32010
-ENTRYPOINT ["java", "-jar", "./ecosystem-user-service.jar"]
+WORKDIR /ecosystem-user-service
+COPY --from=build /ecosystem-user-service/target/*.jar /ecosystem-user-service/*.jar
+EXPOSE 8081
+ENTRYPOINT ["java","-jar","*.jar"]
